@@ -1,0 +1,358 @@
+/* Font chung */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f9fc;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Header */
+/* Header */
+.main-header {
+    background-color: #2e3a59;
+    color: #fff;
+    padding: 20px 16px; /* Giảm padding để header gọn hơn */
+    text-align: center;
+}
+
+/* Font trong header */
+.main-header h1 {
+    font-size: 24px; /* Giảm font-size xuống */
+    margin: 0;
+    line-height: 1.2; /* Tăng độ gọn cho dòng */
+}
+
+
+/* Layout chính */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* Panel trái */
+.left-panel {
+    flex: 1;
+    min-width: 350px;
+    max-width: 480px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Panel phải */
+.right-panel {
+    flex: 2;
+    min-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Form & nút */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2e3a59;
+    font-size: 1.1rem;
+}
+
+select, input[type="number"], input[type="text"], button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* Nút chạy */
+.run-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.3s, transform 0.1s;
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+}
+
+.run-btn:hover {
+    background-color: #218838;
+    transform: scale(1.03);
+}
+
+/* Khu vực kết quả */
+.graph-section,
+.graph-structure-section,
+.result-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    font-size: 1.05rem;
+}
+
+.graph-section::before,
+.graph-structure-section::before,
+.result-section::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #1e355d;
+    margin-bottom: 1rem;
+}
+
+/* Khu vực đồ thị */
+.graph-area {
+    height: 420px;
+    background-color: #eef2f7;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-style: italic;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.tooltip-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    color: #1976d2;
+    background: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    z-index: 10;
+}
+.tooltip-icon:hover {
+    background: #1976d2;
+    color: #fff;
+}
+
+/* EDGE INPUTS GRID */
+.edge-inputs {
+    display: grid;
+    grid-template-columns: 32px 1fr 1fr 1fr 36px; /* #, u, v, weight, X */
+    gap: 0.6rem;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.edge-row {
+    display: contents;
+}
+
+.edge-row.header div {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+    color: #2e3a59;
+}
+
+.edge-row > div {
+    text-align: right;
+}
+
+.edge-row > div:first-child {
+    text-align: center;
+}
+
+.edge-inputs input[type="number"] {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0.65rem 0.8rem;
+    font-size: 1.05rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafbfc;
+    text-align: right;
+    display: block;
+}
+
+.edge-inputs .remove-btn {
+    width: 2.2rem;
+    height: 2.2rem;
+    background: #ffe5e5;
+    border: none;
+    border-radius: 6px;
+    color: #c00;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.edge-inputs .remove-btn:hover {
+    background: #ffcccc;
+}
+
+.edge-table .edge-input {
+    width: 90px;
+    min-width: 60px;
+    max-width: 120px;
+    box-sizing: border-box;
+    padding: 0.65rem 0.8rem;
+    font-size: 1.05rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafbfc;
+    text-align: right;
+    display: block;
+    margin: 0 auto;
+}
+
+.edge-table td, .edge-table th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.3rem 0.2rem;
+}
+
+.edge-table .remove-btn {
+    width: 2.2rem;
+    height: 2.2rem;
+    background: #ffe5e5;
+    border: none;
+    border-radius: 6px;
+    color: #c00;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+
+.edge-table .remove-btn:hover {
+    background: #ffcccc;
+}
+
+/* Độ phức tạp */
+.complexity-info {
+    background: #e6f4ff;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    border-left: 5px solid #007bff;
+    margin-top: 2rem;
+    color: #004d99;
+}
+
+/* Modal styles for graph popup */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    position: relative;
+    text-align: left;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#graph-structure, .graph-structure-section pre {
+    white-space: pre;
+    overflow-x: auto;
+    display: block;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: 'Consolas', 'Menlo', 'Monaco', monospace;
+    font-size: 1rem;
+    max-height: 300px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .graph-area {
+        height: 320px;
+    }
+    .left-panel,
+    .right-panel {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .edge-inputs {
+        grid-template-columns: 28px 1fr 1fr 1fr 32px;
+        gap: 0.4rem;
+    }
+
+    .edge-inputs input[type="number"] {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.5rem;
+    }
+
+    .run-btn {
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+}

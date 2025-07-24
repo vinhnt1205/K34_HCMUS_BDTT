@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô phỏng Thuật toán Đồ thị</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>Mô phỏng Thuật toán Đồ thị</h1>
+    </header>
+
+    <main class="main-container">
+        <!-- Panel bên trái: Nhập liệu -->
+        <section class="left-panel">
+            <form id="algo-form">
+                <div class="form-group">
+                    <label for="algorithm">Chọn thuật toán:</label>
+                    <select id="algorithm" name="algorithm" required>
+                        <option value="">-- Chọn thuật toán --</option>
+                        <option value="bfs">BFS - Breadth-First Search</option>
+                        <option value="dfs">DFS - Depth-First Search</option>
+                        <option value="dijkstra">Dijkstra</option>
+                        <option value="bellmanford">Bellman-Ford</option>
+                        <option value="astar">A* (A-Star)</option>
+                    </select>
+                </div>
+
+                <!-- Phần nhập số đỉnh, số cạnh, cạnh,... -->
+                <div id="input-section" class="form-group"></div>
+
+                <!-- Nút chạy -->
+                <button type="submit" class="run-btn">Chạy thuật toán</button>
+
+                <!-- Thông tin độ phức tạp -->
+                <div id="complexity-section" class="complexity-info">
+                    <h3>Độ phức tạp</h3>
+                    <p><strong>Loại:</strong> <span id="complexity-label">--</span></p>
+                    <p><strong>Công thức:</strong> <span id="complexity-formula">--</span></p>
+                    <p><strong>Tính toán:</strong> <span id="complexity-calc">--</span></p>
+                    <p><strong>Kết quả:</strong> <span id="complexity-result">--</span></p>
+                </div>
+            </form>
+        </section>
+
+        <!-- Panel bên phải: Mô phỏng và kết quả -->
+        <section class="right-panel">
+            <!-- Vùng vẽ đồ thị -->
+            <div class="graph-section" data-label="Mô phỏng Đồ thị">
+                <div id="graph" class="graph-area">
+                    <span id="graphTooltipIcon" class="tooltip-icon" title="Hiển thị thông tin" style="display:none;">&#9432;</span>
+                    Chưa có dữ liệu. Hãy nhập thông tin và bấm "Chạy thuật toán".
+                </div>
+            </div>
+
+            <!-- Cấu trúc đồ thị -->
+            <div class="graph-structure-section" data-label="Cấu trúc đồ thị đã nhập">
+                <pre id="graph-structure">(Chưa có dữ liệu)</pre>
+            </div>
+
+            <!-- Kết quả thuật toán -->
+            <div class="result-section" data-label="Kết quả & Các bước thực hiện">
+                <span id="resultTooltipIcon" class="tooltip-icon" title="Hiển thị thông tin" style="float:right; margin-top:-2.2rem; margin-right:0.5rem; position:relative; display:none;">&#9432;</span>
+                <div id="steps">(Chưa có bước thực hiện nào)</div>
+                <div id="summary"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for displaying text content -->
+    <div id="graphModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="closeGraphModal">&times;</span>
+            <div id="modalTextContent">
+                Đây là nơi bạn sẽ chèn nội dung văn bản vào.
+            </div>
+        </div>
+    </div>
+
+    <!-- Thư viện vẽ đồ thị -->
+    <script src="https://unpkg.com/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+    <script src="/static/main.js"></script>
+</body>
+</html>
